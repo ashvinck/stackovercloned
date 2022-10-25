@@ -1,0 +1,93 @@
+.Sidebar {
+    position: sticky;
+    color: rgb(35, 38, 41);
+    height: 100%;
+    margin: 0;
+    margin-left: -10px;
+    font-size: 13px;
+    width: 155px;
+    border-right: 1px solid rgb(214, 217, 220);
+    border-bottom: 1px solid rgb(214, 217, 220);
+    box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.05),
+        0 1px 4px hsla(0, 0%, 0%, 0.05),
+        0 2px 8px hsla(0, 0%, 0%, 0.05);
+    z-index: 99;
+    background-color: #fff;
+}
+
+.Homeoption {
+    padding-top: 12px;
+    padding-bottom: 10px;
+    margin-left: -2px;
+}
+
+.ListContainer {
+    align-items: center;
+    color: hsl(210, 8%, 35%);
+    margin-bottom: 12px;
+    margin-left: 0;
+    border-color: rgb(35, 38, 41);
+    list-style: none;
+    list-style-position: outside;
+    /* padding-inline-start: 12px; */
+}
+
+.ListItems {
+    display: list-item;
+    list-style-position: outside;
+    position: relative;
+    border-color: rgb(35, 38, 41);
+    border-style: none;
+}
+
+
+
+.SideLink {
+    display: block;
+    color: rgb(12, 13, 14);
+    text-align: left;
+    text-decoration-line: none;
+    color: hsl(210, 8%, 35%);
+    box-sizing: border-box;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 6px;
+}
+
+.SideLink:hover {
+    color: #000;
+}
+
+.SideLink:focus {
+    background-color: hsl(210, 8%, 92%);
+    font-weight: bolder;
+    color: #000;
+    border-right: 3px solid hsl(27, 90%, 55%);
+}
+
+.TextContainer {
+    /* padding-left: 10px; */
+}
+
+.Category {
+    border-color: rgb(106, 115, 124);
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: left;
+    padding-left: 6px;
+    padding-top: 5px;
+}
+
+.Text {
+    display: inline-block;
+    padding-left: 5px;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+
+}
+
+.Text1 {
+    display: inline-block;
+    padding-left: 20px;
+    text-overflow: ellipsis;
+}

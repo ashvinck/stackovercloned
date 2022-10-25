@@ -1,56 +1,63 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React, { useEffect } from 'react';
 import './App.css';
+import { Route, Routes, Navigate } from "react-router-dom";
+import Home from './Pages/Home/HomePage';
+// import Header from './Components/Header/Header';
+import AskQuestions from './Pages/AskQuestions/AskQuestions';
+import TopQuestions from './Pages/TopQuestions/TopQuestions';
+import ViewQuestions from './Pages/ViewQuestions/ViewQuestions';
+import { useDispatch, useSelector } from 'react-redux';
+import AuthUser from './Pages/UserAutentication/Authuser';
+import { login, logout, selectUser } from './features/userSlice';
+import { auth } from './Firebase-auth';
+import Topbar from './Components/Topbar/Topbar';
+import Profilepage from './Pages/ProfilePage/ProfilePage.jsx';
+
 
 function App() {
+  // User state is null then redirect to auth page
+  const user = useSelector(selectUser)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch(
+          login({
+            uid: authUser.uid,
+            photo: authUser.photoURL,
+            displayName: authUser.displayName,
+            email: authUser.email,
+            screenName: authUser.screenName,
+          })
+        );
+      }
+      else {
+        dispatch(logout());
+      }
+    });
+  }, [dispatch])
+
+
+  // Adding  a private route for preventing unauhtorized access
+  const PrivateRoute = ({ children }) => {
+    return user ? children : <Navigate to="/auth" />;
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      {/* <Header /> */}
+      <Topbar />
+      <Routes>
+        <Route path={user ? '/' : '/auth'} element={user ? <Home /> : <AuthUser />} />
+        <Route path="/" element={<PrivateRoute> <Home /></PrivateRoute>} />
+        <Route path="/add-question" element={<PrivateRoute> <AskQuestions /> </PrivateRoute>} />
+        <Route path="/top-questions" element={<PrivateRoute><TopQuestions /></PrivateRoute>} />
+        <Route path="/question" element={<PrivateRoute> <ViewQuestions /> </PrivateRoute>} />
+        <Route path="/user" element={<PrivateRoute><Profilepage /> </PrivateRoute>} />
+        <Route path="/auth" element={<AuthUser />} />
+      </Routes>
     </div>
   );
 }

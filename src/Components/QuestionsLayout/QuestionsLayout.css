@@ -1,0 +1,138 @@
+.QuestionsLayout {
+    border-bottom: 1px solid rgb(227, 230, 232);
+    padding-bottom: 10px;
+}
+
+.Que-Left,
+.Que-Right {
+    padding-top: 15px;
+    padding-inline-start: 0px;
+    word-wrap: break-word;
+}
+
+.Que-Right {
+    padding-left: 20px;
+    object-fit: contain;
+
+}
+
+.QueLink {
+    text-decoration: none;
+    color: rgb(0, 116, 204);
+}
+
+.Que-info {
+    display: flex;
+    /* margin: 10px; */
+    align-items: flex-end;
+    justify-content: flex-end;
+
+}
+
+.Que-Title {
+    /* margin: 10px; */
+    color: #0063bf;
+    word-wrap: break-word;
+    text-overflow: ellipsis !important;
+}
+
+.Que-Body {
+    /* margin: 10px; */
+    color: rgb(59, 64, 69);
+    word-wrap: break-word;
+    text-overflow: ellipsis !important;
+}
+
+.Que-tags {
+    display: flex;
+    align-items: center;
+    text-overflow: ellipsis;
+}
+
+.Tagbtn {
+    border: 1px solid #fff;
+    border-radius: 3px;
+    color: rgb(57, 115, 157);
+    line-height: 12px;
+    background-color: rgb(225, 236, 244);
+    padding: 6px 10px 6px 10px;
+    ;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.Author {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-overflow: ellipsis;
+    /* font-size: 13px; */
+}
+
+.Avatar1 {
+    margin-right: 20px;
+}
+
+.Name {
+    margin-right: 20px;
+}
+
+.Timestamp {
+    margin-right: 20px;
+}
+
+/* For smaller screens */
+.Questionsm {
+    border-top: 1px solid rgb(214, 217, 220);
+}
+
+.Que-container {
+    margin-top: 2px;
+}
+
+.InfoContainer {}
+
+.InfoContainer>p {
+    display: inline;
+    padding-right: 20px;
+    color: rgb(106, 115, 124);
+    font-size: 13px !important;
+}
+
+.InfoContainer:hover {
+    color: black
+}
+
+.Queheading {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 18px !important;
+    font-weight: 400;
+}
+
+.Quesm-tags {
+    font-size: 12px;
+}
+
+.Tagbtnsm {
+    border: 1px solid #fff;
+    border-radius: 3px;
+    color: rgb(57, 115, 157);
+    line-height: 12px;
+    background-color: rgb(225, 236, 244);
+    padding: 2px 6px 2px 6px;
+    margin-right: 10px;
+    font-size: 10px;
+    cursor: pointer;
+
+}
+
+.Authorsm {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-overflow: ellipsis;
+    font-size: 13px;
+}

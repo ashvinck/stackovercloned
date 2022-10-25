@@ -1,0 +1,62 @@
+.AskQuestionCard {
+    margin: 20px;
+    width: 100%;
+    max-width: 756px;
+
+}
+
+.card {
+    /* position: fixed; */
+    padding: 10px;
+    color: rgb(12, 13, 14);
+}
+
+.Title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.Heading {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.Subheading {
+    color: rgb(59, 64, 69);
+}
+
+.Input-Title {
+    border: 1px solid rgb(186, 191, 196);
+    border-radius: 3px;
+    color: rgb(12, 13, 14);
+    font-size: 13px;
+    margin-top: 5px;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    padding-right: 0.7em;
+    padding-left: 0.7em;
+    width: 100%;
+
+}
+
+.button {
+    max-width: fit-content;
+    margin: 10px 0px;
+    padding: 8px;
+    font-size: 13px;
+    background-color: #0095ff;
+    color: #fff;
+    border: 2px solid #007cd446;
+    outline: none;
+    border-radius: 3px;
+}
+
+.button:hover {
+    background-color: rgb(25, 126, 221);
+}
+
+.button:active {
+    background-color: hsl(209, 100%, 56.5%);
+}

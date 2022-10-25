@@ -1,0 +1,144 @@
+.ViewQue-container {
+    padding: 12px;
+}
+
+.allQuestions {
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    font-size: 27px;
+}
+
+.title {
+    color: rgb(82, 88, 92);
+}
+
+
+
+.Timeline {
+    font-size: 13px;
+    color: rgb(106, 115, 124);
+    margin-bottom: 10px;
+}
+
+.Timeline>p {
+    display: inline;
+    padding-right: 24px;
+    color: rgb(106, 115, 124);
+}
+
+span {
+    color: rgb(35, 38, 41) !important;
+    padding-left: 6px;
+}
+
+.Answer-container,
+.All-answers-container,
+.Your-Answer {
+    border-top: 1px solid rgb(227, 230, 232);
+    padding-top: 10px;
+}
+
+.Answer-left {
+    display: inline-block;
+    width: 10%;
+}
+
+.UpArrow,
+.Votecount,
+.DownArrow {
+    color: rgb(141, 150, 160) !important;
+}
+
+.Answer-right {
+    display: inline-block;
+    width: 90%;
+    padding: 10px;
+}
+
+.Author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.AnsHead {
+    display: block;
+    font-size: 19px;
+
+}
+
+.Comment-container,
+.Comment-allans-container {}
+
+.Comments,
+.Comments-allAns {
+    /* background-color: teal; */
+    border-top: 1px solid rgb(227, 230, 232);
+    padding: 5px;
+    color: rgb(35, 38, 41);
+    font-size: 13px;
+    overflow-wrap: break-word;
+    text-align: left;
+
+}
+
+.Under-comments,
+.Under-allAns-comments {
+    border-bottom: 1px solid rgb(227, 230, 232);
+    padding: 5px;
+}
+
+.User-link,
+.User-all-Anslink {
+    color: rgb(0, 116, 204);
+    text-decoration: none;
+}
+
+.time-stamp {
+    color: rgb(145, 153, 161);
+
+
+}
+
+.Comment-text,
+.Comment-text-allAns {
+    color: rgb(131, 140, 149);
+    cursor: pointer;
+    font-size: 13px;
+    opacity: 0.6;
+    text-align: left;
+    text-decoration: 1 px solid rgb(131, 140, 149);
+}
+
+
+.small1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 18px;
+}
+
+.author-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 18px;
+}
+
+.avatar {
+    padding-right: 10px;
+}
+
+.timeline {
+    font-size: 15px;
+}
+
+.react-quill {
+    margin: 50px 0;
+    border-radius: 10px;
+}
+
+/* .ql-editor {
+    height: 200px;
+} */
