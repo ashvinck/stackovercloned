@@ -4,18 +4,19 @@ import { MenuToggle } from '../Hamburger menu/Menu';
 import Logolg from '../../Assets/images/logonew.png';
 import Logosm from '../../Assets/images/stackoverflow.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleQuestion, faInbox, faRightFromBracket, faSearch, faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { faCircleQuestion, faInbox, faRightFromBracket, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { faStackExchange } from '@fortawesome/free-brands-svg-icons';
 import Avatar from 'react-avatar';
 import Sidebar from '../Sidebar/Sidebar';
 import { useSelector } from 'react-redux';
-import { selectUser } from '../../features/userSlice';
+import { selectUser } from '../../features/UserAuth/userSlice';
 import { auth } from '../../Firebase-auth';
 import './Topbar.css';
+import Searchbar from '../Searchbar/Searchbar';
 
 
 
-const Topbar = (props) => {
+const Topbar = (viewQue, setSearchResults) => {
 
     const [isOpen, setOpen] = useState(false);
     const user = useSelector(selectUser);
@@ -39,7 +40,7 @@ const Topbar = (props) => {
                 <div className='Logo-wrapper' title='Home'>
                     {/* Logo */}
                     {/* Logo for larger screens */}
-                    <Link to='/'>
+                    <Link to='/home'>
                         <img className='Logolg d-none d-md-block d-lg-block' src={Logolg} alt='logo' />
                         {/* Logo for smaller screens */}
                         <img className='Logosm d-sm-block d-md-none d-lg-none ' src={Logosm} alt='logo' />
@@ -47,17 +48,13 @@ const Topbar = (props) => {
                 </div>
                 {/* NavLinks */}
                 <div className='NavLinks'>
-                    <Link className='LinkNav' to='./'>
+                    <Link className='LinkNav' to='./products'>
                         Products
                     </Link>
                 </div>
                 {/* Search bar */}
-                <div className="form-group SearchbarContainer ">
-                    <div className="SearchIcon">
-                        <Link className='Searchlink'> <FontAwesomeIcon icon={faSearch} /></Link>
-                    </div>
-                    <input type="text" className="Input d-none d-md-block d-lg-block" placeholder="Search..." />
-                </div>
+                <Searchbar />
+
                 <div className='Action-container'>
                     {/* Avatar */}
                     <div className='Avatar'>
@@ -69,24 +66,24 @@ const Topbar = (props) => {
                     {/* Accessibility Links  */}
                     <div className='Links-wrapper'>
                         <ul className='UlList'>
-                            <Link className='AccLink'>
-                                {/* Inbox */}
+                            {/* Inbox */}
+                            {/* <Link className='AccLink'>
                                 <li className='Lists' title='Inbox'>
                                     <FontAwesomeIcon icon={faInbox} />
                                 </li>
-                            </Link>
+                            </Link> */}
                             {/* Achievements */}
-                            <Link className='AccLink'>
+                            {/* <Link className='AccLink'>
                                 <li className='Lists' title='Achievements'>
                                     <FontAwesomeIcon icon={faTrophy} />
                                 </li>
-                            </Link>
+                            </Link> */}
                             {/* Stack Exchange */}
-                            <Link className='AccLink'>
+                            {/* <Link className='AccLink'>
                                 <li className='Lists' title='Stack-exchange' >
                                     <FontAwesomeIcon icon={faStackExchange} />
                                 </li>
-                            </Link>
+                            </Link> */}
                             {/* Logout */}
                             {user ?
                                 <div className='Link1' onClick={() => { auth.signOut() }}>
@@ -103,12 +100,9 @@ const Topbar = (props) => {
                                     </li>
                                 </Link>
                             }
-
                         </ul>
                     </div>
                 </div>
-
-
             </nav>
         </div>
     )

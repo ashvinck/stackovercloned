@@ -1,11 +1,5 @@
-.Mainrow1 {
+.Mainr1 {
     margin-bottom: 15px !important;
-    /* padding-right: 10px; */
-}
-
-.Mainr2 {
-    /* margin-bottom: 10px; */
-    /* padding-right: 10px; */
 }
 
 .title {
@@ -64,8 +58,6 @@
 }
 
 .Items {
-    /* margin-left: 20px;
-    margin-right: 20px; */
     border: 1px solid rgb(159, 166, 173);
     font-size: 13px;
     color: rgb(106, 115, 124);

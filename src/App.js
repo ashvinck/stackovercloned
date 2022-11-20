@@ -1,23 +1,29 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import { Route, Routes, Navigate } from "react-router-dom";
-import Home from './Pages/Home/HomePage';
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 // import Header from './Components/Header/Header';
-import AskQuestions from './Pages/AskQuestions/AskQuestions';
-import TopQuestions from './Pages/TopQuestions/TopQuestions';
-import ViewQuestions from './Pages/ViewQuestions/ViewQuestions';
 import { useDispatch, useSelector } from 'react-redux';
-import AuthUser from './Pages/UserAutentication/Authuser';
-import { login, logout, selectUser } from './features/userSlice';
+import AuthUser from './Components/UserAutentication/Authuser';
+import { login, logout, selectUser } from './features/UserAuth/userSlice';
 import { auth } from './Firebase-auth';
 import Topbar from './Components/Topbar/Topbar';
-import Profilepage from './Pages/ProfilePage/ProfilePage.jsx';
+import moment from 'moment';
+import Sidebar from './Components/Sidebar/Sidebar';
+import Mainbar from './Components/Mainbar/Mainbar';
+import AskQue from './Components/AskQuestion/AskQue';
+import TopQue from './Components/TopQuestions/TopQue';
+import ViewQue from './Components/ViewQuestions/ViewQue';
+import Profilecard from './Components/ProfileCard/Profilecard';
+import { Jobs } from './Components/companies/Companies';
+import NotfoundPage from './Components/404Notfound/Notfound';
+import Tags from './Components/TagsComponent/tagsComponent';
 
 
 function App() {
-  // User state is null then redirect to auth page
+
   const user = useSelector(selectUser)
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -49,15 +55,29 @@ function App() {
     <div className="App">
       {/* <Header /> */}
       <Topbar />
-      <Routes>
-        <Route path={user ? '/' : '/auth'} element={user ? <Home /> : <AuthUser />} />
-        <Route path="/" element={<PrivateRoute> <Home /></PrivateRoute>} />
-        <Route path="/add-question" element={<PrivateRoute> <AskQuestions /> </PrivateRoute>} />
-        <Route path="/top-questions" element={<PrivateRoute><TopQuestions /></PrivateRoute>} />
-        <Route path="/question" element={<PrivateRoute> <ViewQuestions /> </PrivateRoute>} />
-        <Route path="/user" element={<PrivateRoute><Profilepage /> </PrivateRoute>} />
-        <Route path="/auth" element={<AuthUser />} />
-      </Routes>
+      <div className="Home container-fluid">
+        <div className='row tq1'>
+          <div className='Sidebar-container d-none d-sm-none d-md-block '>
+            {user ? <Sidebar /> : null}
+          </div>
+          <div className='Mainbar-container'>
+            <Routes>
+              <Route path={user ? '/' : '/auth'} element={user ? <Mainbar /> : <AuthUser />} />
+              <Route path="/" element={<Navigate replace to='/home' />} />
+              <Route path="/home" element={<PrivateRoute> <Mainbar /></PrivateRoute>} />
+              <Route path="/add-question" element={<PrivateRoute> <AskQue /> </PrivateRoute>} />
+              <Route path="/top-questions" element={<PrivateRoute><TopQue /></PrivateRoute>} />
+              <Route path="/home/:id" element={<PrivateRoute> <ViewQue /> </PrivateRoute>} />
+              <Route path="/user" element={<PrivateRoute><Profilecard /> </PrivateRoute>} />
+              <Route path="/jobs" element={<PrivateRoute> <Jobs /> </PrivateRoute>} />
+              <Route path="/tags" element={<PrivateRoute> <Tags /> </PrivateRoute>} />
+              <Route path="/auth" element={<AuthUser />} />
+              <Route path="/404" element={<NotfoundPage />} />
+              <Route path="*" element={<Navigate replace to="/404" />} />
+            </Routes>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

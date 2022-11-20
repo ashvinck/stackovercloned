@@ -2,13 +2,13 @@ import React from 'react';
 import './ProfileCard.css';
 import moment from "moment";
 import { useSelector } from 'react-redux';
-import { selectUser } from '../../features/userSlice';
+import { selectUser } from '../../features/UserAuth/userSlice';
 import Avatar from 'react-avatar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCakeCandles } from '@fortawesome/free-solid-svg-icons';
 
 
-const Profilecard = ({ created_at }) => {
+const Profilecard = () => {
 
     const user = useSelector(selectUser);
 
@@ -28,12 +28,9 @@ const Profilecard = ({ created_at }) => {
                             <div className='Membership'>
                                 <FontAwesomeIcon className='Bdayicon' icon={faCakeCandles} />
                                 &nbsp;
-                                Member for  {moment(created_at).fromNow(false)}
+                                Member for  {moment().fromNow(false)}
                             </div>
                         </div>
-                        {/* <div className='Logout-btn col-3'>
-                            <button className='button1'>Log out</button>
-                        </div> */}
                     </div>
                 </div>
                 {/* Stat */}

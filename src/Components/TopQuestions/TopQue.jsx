@@ -22,7 +22,6 @@ const TopQue = () => {
                     </div>
                     <div className='row Mainr2'>
                         <div className='Info col-12'>
-                            {/* <div className='row Mainr3'> */}
                             <div className='QuestionSummary bg- col-6'>
                                 <h5 className='summary'>Questions</h5>
                             </div>
@@ -45,7 +44,6 @@ const TopQue = () => {
                                     </div>
                                 </div>
                             </div>
-                            {/* </div> */}
                         </div>
                     </div>
                 </div>

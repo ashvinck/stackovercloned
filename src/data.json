@@ -1,0 +1,210 @@
+[
+  {
+    "question": {
+      "heading": "What is the difference between React Native and React?",
+      "description": "<p class=\"ql-align-justify\">I have started to learn React out of curiosity and wanted to know the difference between React and React Native - though could not find a satisfactory answer using Google. React and React Native seems to have the same format. Do they have completely different syntax?</p>",
+      "tags": ["javascript", "reactjs", "react-native", "javascript-framework"],
+      "user": {
+        "photo": "https://www.gravatar.com/avatar/a59465ee1a63e2e1be13e789814957a0?s=192&d=identicon&r=PG",
+        "displayName": "Shiva Kumar",
+        "email": null
+      },
+      "date": "20161015"
+    },
+    "id": "1",
+    "queComments": [
+      {
+        "comment": "Everybody is giving a dictionary response when most people asking this question just want to know how interchangeable they are: How easy is it to port their React code to React Native? Will you need to rewrite the front end of your web app into different React code if you want it on an iPad? How different?",
+        "user": {
+          "photo": "https://www.gravatar.com/avatar/27507c7b9958f8863c6640543baec276?s=192&d=identicon&r=PG&f=1",
+          "displayName": "Lawrence Weru",
+          "email": null
+        },
+        "date": "20161020"
+      },
+      {
+        "comment": "Short answer is that react-native builds mobile apps for iOS, Android, and Windows Mobile that you can compile and put in the app stores for users to install. Reactjs is for building web pages for use in a web browser. Both use reusable components, but the syntax you use to render elements in the components (using JSX) is different. React JSX renders html-like components like <h1>, <p>, etc. Where react-native renders native app view components like <View> , <Text>, <Image>, <ScrollView>, so you can't directly reuse your UI component code unless you rework/replace all the elements",
+        "user": {
+          "photo": "https://www.gravatar.com/avatar/6a1190e30491c43f563d58ac4aa9c511?s=192&d=identicon&r=PG&f=1",
+          "displayName": "Akrun",
+          "email": null
+        },
+        "date": "20161026"
+      }
+    ],
+    "answers": [
+      {
+        "detailedanswer": "<p class=\"ql-align-justify\">At Facebook, they invented React so JavaScript can manipulate the website DOM faster using the virtual DOM model.DOM full refresh is slower compared to the React virtual-dom model, which refreshes only parts of the page (read: partial refresh).As you may understand from this video, Facebook did not invent React because they understood immediately that the partial refresh would be faster than the conventional one. Originally they needed a way to reduce Facebook application re-build time and luckily this brought the partial DOM refresh to life.React native is just a consequence of React. It is a platform to build native apps using JavaScript.Prior to React native you needed to know Java or Kotlin for Android and Swift or Objective-C for iPhone and iPad to create native apps.With React Native it is possible to mimic the behavior of the native app in JavaScript and in the end, you will get platform-specific code as the output. You may even mix the native code with JavaScript if you need to optimize your application further.As Olivia Bishop said in the video, 85% of the React native codebase can be shared among platforms. These would be the components applications typically use and the common logic.15% of the code is platform-specific. The platform-specific JavaScript is what gives the platform flavor ( and makes the difference in the experience ).The cool thing is this platform-specific code — is already written, so you just need to use it</p>",
+        "user": {
+          "photo": "https://www.gravatar.com/avatar/2b734517ca20f60be036624172b35191?s=192&d=identicon&r=PG&f=1",
+          "displayName": "tricot",
+          "email": null
+        },
+        "date": "20161015"
+      },
+      {
+        "detailedanswer": "<p class=\"ql-align-justify\">ReactJS is a JavaScript library, supporting both front-end web and being run on a server, for building user interfaces and web applications. It follows the concept of reusable components.React Native is a mobile framework that makes use of the JavaScript engine available on the host, allowing you to build mobile applications for different platforms (iOS, Android, and Windows Mobile) in JavaScript that allows you to use ReactJS to build reusable components and communicate with native components further explanationBoth follow the JSX syntax extension of JavaScript. Which compiles to React.createElement calls under the hood. JSX in-depthBoth are open-sourced by Facebook</p>",
+        "user": {
+          "photo": "https://i.stack.imgur.com/WtfBG.png?s=192&g=1",
+          "displayName": "GMB",
+          "email": null
+        },
+        "date": "20170102"
+      }
+    ]
+  },
+  {
+    "question": {
+      "heading": "What is Virtual DOM ?",
+      "description": "<p class=\"ql-align-justify\">Recently, I looked at Facebook's React framework. It uses a concept called the Virtual DOM, which I didn't really understand.What is the Virtual DOM? What are the advantages?</p>",
+      "tags": ["javascript", "reactjs"],
+      "user": {
+        "photo": "https://i.stack.imgur.com/J55wI.jpg?s=192&g=1",
+        "displayName": "jcalz",
+        "email": null
+      },
+      "date": "20170815"
+    },
+    "id": "2",
+    "queComments": [
+      {
+        "comment": "I believe Virtual DOM is talking about nodes that are not in the normal DOM. ",
+        "user": {
+          "photo": "https://i.stack.imgur.com/vaSv8.png?s=192&g=1",
+          "displayName": "Copson",
+          "email": null
+        },
+        "date": "20170817"
+      },
+      {
+        "comment": "I agree with the above sentiments with regard to moderation. Moreover, I believe this is a very valid and useful question. Virtual DOM is often referenced, but rarely defined.\",",
+        "user": {
+          "photo": "https://i.stack.imgur.com/1Qi3E.png?s=192&g=1",
+          "displayName": "Thanhal",
+          "email": null
+        },
+        "date": "20170926"
+      }
+    ],
+    "answers": [
+      {
+        "detailedanswer": "<p class=\"ql-align-justify\">React creates a tree of custom objects representing a part of the DOM. For example, instead of creating an actual DIV element containing a UL element, it creates a React.div object that contains a React.ul object. It can manipulate these objects very quickly without actually touching the real DOM or going through the DOM API. Then, when it renders a component, it uses this virtual DOM to figure out what it needs to do with the real DOM to get the two trees to match.You can think of the virtual DOM like a blueprint. It contains all the details needed to construct the DOM, but because it doesn't require all the heavyweight parts that go into a real DOM, it can be created and changed much more easily</p>",
+        "user": {
+          "photo": "https://www.gravatar.com/avatar/47d79e962b5a813f224bca06e396f662?s=192&d=identicon&r=PG&f=1",
+          "displayName": "Nick",
+          "email": null
+        },
+        "date": "20171012"
+      },
+      {
+        "detailedanswer": "<p>Virtual DOM is an abstraction of the HTML DOM that selectively renders subtrees of nodes based upon state changes. It does the least amount of DOM manipulation possible in order to keep your components up to date</p>",
+        "user": {
+          "photo": "https://www.gravatar.com/avatar/246f740a4597f4fec0ebbc6be98fa8ab?s=192&d=identicon&r=PG&f=1",
+          "displayName": "Panda Kim",
+          "email": null
+        },
+        "date": "20171223"
+      }
+    ]
+  },
+  {
+    "question": {
+      "heading": "Is shadow DOM fast like Virtual DOM in React.js ?",
+      "description": "<p class=\"ql-align-justify\">Does implementing Shadow DOM in my projects will make them faster like virtual DOM that's used by React?</p>",
+      "tags": ["dom", "web-development", "shadow-dom", "virtual-dom"],
+      "user": {
+        "photo": "https://www.gravatar.com/avatar/aecb41eb8faf444bf8a8215d663b6e5b?s=192&d=identicon&r=PG&f=1",
+        "displayName": "Phil Dukhov",
+        "email": null
+      },
+      "date": "20210115"
+    },
+    "id": "3",
+    "queComments": [
+      {
+        "comment": "",
+        "user": {
+          "uid": "",
+          "photo": "",
+          "displayName": "",
+          "email": null
+        },
+        "date": ""
+      }
+    ],
+    "answers": [
+      {
+        "detailedanswer": "<p class=\"ql-align-justify\">They are different things for different purposes, so comparing performance doesn't make sense.Virtual DOM - Virtual DOM is about avoiding unnecessary changes to the DOM, which are expensive performance-wise, because changes to the DOM usually cause re-rendering of the page. Virtual DOM also allows to collect several changes to be applied at once, so not every single change causes a re-render, but instead re-rendering only happens once after a set of changes was applied to the DOM.Shadow DOMShadow dom is mostly about encapsulation of the implementation. A single custom element can implement more-or-less complex logic combined with more-or-less complex DOM. An entire web application of arbitrary complexity can be added to a page by an import and <body><my-app></my-app> but also simpler reusable and composable components can be implemented as custom elements where the internal representation is hidden in the shadow DOM like <date-picker></date-picker>.Style encapsulation Shadow DOM is also about preventing styles being applied accidentally to elements the designer didn't intend to, for example because the CSS or components library you are using changed a selector that now applies to other elements that use the same CSS class names. Styles added to components are scoped to that component and bleeding out or in of styles is prevented.DOM and performanceEven though shadow DOM is not about performance in the first place it also has performance implications. Because styles are scoped, the browser can make assumptions about some changes to affect only a limited area of the page (the shadow DOM of a custom element) which can limit re-rendering to the area of such a component, instead of re-rendering the entire page.This is the reason the >>>, /deep/, and ::shadow CSS combinators, which allowed to apply styles across shadow DOM boundaries, were deprecated and are subject to be removed soon from Chrome (other browsers never had them AFAIK). The mere existence of these combinators prevents the kind of optimization mentioned in the previous paragraph.Angular2 uses the advantages of both worlds.It uses unidirectional data flow and runs change detection on the model only. If it detects changes it causes the DOM to be updated by updating bindings and make structural directives like *ngFor, *ngIf, ... update the DOM. Therefore the DOM is only updated when the model actually changed.Angular2 uses shadow DOM (only with ViewEncapsulation.Native which is currently not the default) to utilize style encapsulation capabilities provided by the browser, or (current default) just emulate style encapsulation by rewriting styles added to components, as a workaround until native shadow DOM and CSS variables (for dynamic global style changes) become widely available.So by using Shadow DOM, we're able to hide the implementation details of our web element, and only pass along necessary information to the sub-elements (i.e. height, width), which, perhaps confusingly, strongly resembles the ReactJS idiom of passing props to components</p>",
+        "user": {
+          "photo": "https://i.stack.imgur.com/hXT0U.jpg?s=192&g=1",
+          "displayName": "Dharmaraj",
+          "email": null
+        },
+        "date": "20221015"
+      },
+      {
+        "detailedanswer": "<p>Shadow DOM and Virtual DOM are unrelated, although somewhat similarly named:Virtual DOM: React concept of keeping two copies of the DOM (the original, and the updated) for differential reasons. Before rendering, React diffs the two objects to determine if it should apply an update(s) to the actual DOM tree. This results in boosted performance, as we're only updating the portions of the view that require it, not the entire screen.Shadow DOM: Part of the Web Components spec as proposed by W3C, which basically allows the encapsulation of smaller DOM elements and CSS styles into a single DOM element</p>",
+        "user": {
+          "photo": "https://www.gravatar.com/avatar/7d71332caee11aafe34e1707a70d9bed?s=192&d=identicon&r=PG",
+          "displayName": "r2Evans",
+          "email": null
+        },
+        "date": "20221016"
+      }
+    ]
+  },
+  {
+    "question": {
+      "heading": "How to add icons to React Native App?",
+      "description": "<p class=\"ql-align-justify\">I am making a React Native app. I would like to customize the app icon (meaning the icon that you click on to start the app). I have Googled this, but I keep finding different types of icons that refer to different things. How do I add these types of icons to the app?</p>",
+      "tags": ["icons", "react-native"],
+      "user": {
+        "photo": "https://www.gravatar.com/avatar/6eea660ae3aeca2117a2d910ee9916bd?s=192&d=identicon&r=PG&f=1",
+        "displayName": "Drake B N",
+        "email": null
+      },
+      "date": "20190401"
+    },
+
+    "queComments": [
+      {
+        "comment": "Is this for iOS, Android or both?",
+        "user": {
+          "photo": "https://www.gravatar.com/avatar/d7c1d8366a539de6d881627c89d09f16?s=192&d=identicon&r=PG&f=1",
+          "displayName": "Kind gik",
+          "email": null
+        },
+        "date": "20190629"
+      },
+      {
+        "comment": "now for ios but eventually for both ",
+        "user": {
+          "photo": "https://www.gravatar.com/avatar/6eea660ae3aeca2117a2d910ee9916bd?s=192&d=identicon&r=PG&f=1",
+          "displayName": "Drake B N",
+          "email": null
+        },
+        "date": "20190524"
+      }
+    ],
+    "answers": [
+      {
+        "detailedanswer": "<p class=\"ql-align-justify\">For setting the App launch icon for Android Devices in a React-Native project:Take a high resolution image of your logo and place it inside your project directory. Preferably in [Project-DIR]/android/app/src/main/res/Open Android Studio and run your React-native project.In Android Studio's Project window, select the Android viewRight-click the res folder and select New > Image AssetA , `Configure Image Asset` -  window will open; Locate your high resolution image and place set it as your `Foreground layer`.Set your `Background Layer` if applicableClick `Next` and continue to finish.Run your application again to see the new app launch icon.</p>",
+        "user": {
+          "photo": "https://i.stack.imgur.com/1Qi3E.png?s=192&g=1",
+          "displayName": "Jezrael",
+          "email": null
+        },
+        "date": "20190504"
+      },
+      {
+        "detailedanswer": "<p class=\"ql-align-justify\">You'll need different sized icons for iOS and Android, like Rockvic said. In addition, I recommend this site for generating different sized icons if anybody is interested. You don't need to download anything and it works perfectly.`https://resizeappicon.com/Hope` it helps.</p>",
+        "user": {
+          "photo": "https://www.gravatar.com/avatar/68f65f424fd34b2e1a7e875f9311f88c?s=192&d=identicon&r=PG&f=1",
+          "displayName": "Laura Tweun",
+          "email": null
+        },
+        "date": "20190515"
+      }
+    ]
+  }
+]

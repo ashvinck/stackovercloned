@@ -14,6 +14,7 @@ const Mainbar = (props) => {
                         <div className='allQuestions col-9'>
                             <h2 className='title'>All Questions</h2>
                         </div>
+                        {/* Ask question Button */}
                         <div className='allQuestionsbtn col-3'>
                             <Link className='Mainlink' to="/add-question">
                                 <button className='button1'>Ask Question</button>
@@ -22,20 +23,19 @@ const Mainbar = (props) => {
                     </div>
                     <div className='row Mainr2'>
                         <div className='Info col-12'>
-                            {/* <div className='row Mainr3'> */}
                             <div className='QuestionSummary bg- col-6'>
                                 <h5 className='summary'>Questions</h5>
                             </div>
                             <div className='Sort-container col-6'>
                                 <div className='Sort-items'>
                                     <div className='Items'>
-                                        <Link className='Mainlink' to='/newest'>Newest</Link>
+                                        <Link className='Mainlink' to='/'>Newest</Link>
                                     </div>
                                     <div className='Items'>
-                                        <Link className='Mainlink' to='/active'>Active</Link>
+                                        <Link className='Mainlink' to='/'>Active</Link>
                                     </div>
                                     <div className='Items'>
-                                        <Link className='Mainlink' to='/more'>More</Link>
+                                        <Link className='Mainlink' to='/'>More</Link>
                                     </div>
                                 </div>
                                 <div className='Filter-container'>
@@ -45,10 +45,10 @@ const Mainbar = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            {/* </div> */}
                         </div>
                     </div>
                 </div>
+                {/* Home page layout of questions*/}
                 <QuestionsLayout />
             </div>
         </div>

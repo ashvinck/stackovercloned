@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 
-
-
+// For the hamburger toggle button
 const Path = (props) => (
     <motion.path
         fill="transparent"

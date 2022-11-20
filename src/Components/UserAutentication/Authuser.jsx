@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './Authuser.css'
 import logo from '../../Assets/images/stackoverflow.png';
+import githublogo from "../../Assets/images/githublogo.png";
+import fblogo from "../../Assets/images/facebooklogo Cropped.png";
 import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { auth, githubprovider, provider } from '../../Firebase-auth';
+import { auth, facebookprovider, githubprovider, provider } from '../../Firebase-auth';
 
 
 
@@ -11,6 +13,10 @@ const AuthUser = () => {
 
     // To toggle between signup and login screen;
     const [register, setRegister] = useState(false);
+
+    // For resetting password
+    const [resetlink, setResetLink] = useState(false);
+
 
     // various states for authorization of credentials
     const [email, setEmail] = useState("");
@@ -50,6 +56,20 @@ const AuthUser = () => {
             .catch((error) => {
                 setLoading(false);
                 console.log(error);
+            });
+    }
+
+    // Facebook Provider
+    const handleSignInWithFacebook = () => {
+        setLoading(true);
+        signInWithPopup(auth, facebookprovider).then((res) => {
+            console.log(res)
+            setLoading(false);
+            navigate("/");
+        })
+            .catch((error) => {
+                setLoading(false);
+                console.log(error)
             });
     }
 
@@ -127,12 +147,12 @@ const AuthUser = () => {
                 .then((res) => {
                     setLoading(false);
                     console.log(res);
+                    setResetLink(true);
                 })
                 .catch((error) => {
                     setError(error.message)
                     console.log(error);
                     setLoading(false);
-                    // ..
                 });
         }
     }
@@ -154,17 +174,17 @@ const AuthUser = () => {
                     {/* Log in with Github card */}
                     <div onClick={handleSignInWithGithub} className="Login-card1">
                         <div className="Login-card-body">
-                            <img alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/240px-Octicons-mark-github.svg.png" />
+                            <img alt='logo' src={githublogo} />
                             <span className='login-dtls1'>Log in with Github</span>
                         </div>
                     </div>
                     {/* Log in with Facebook card */}
-                    {/* <div className="Login-card2">
+                    <div className="Login-card2" onClick={handleSignInWithFacebook}>
                         <div className="Login-card-body">
-                            <img alt='logo' src="https://upload.wikimedia.org/wikipedia/commons/9/91/036-facebook.png" />
+                            <img alt='logo' src={fblogo} />
                             <span className='login-dtls2'>Log in with Facebook</span>
                         </div>
-                    </div> */}
+                    </div>
                     <div className='card'>
                         <div className='card-body'>
 
@@ -199,8 +219,8 @@ const AuthUser = () => {
                                                 <label className="form-label">Password</label>
                                                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" />
                                             </div>
-                                            <button onClick={handleSignIn} className="button2"> {loading ? "Loging in" : "Log in"}</button>
-                                            <Link onClick={handleForgotPassword} className='Mainlink'><p className='ForgotPassword'></p></Link>
+                                            <button onClick={handleSignIn} className="button2"> {loading ? "Logging in" : "Log in"}</button>
+                                            <Link onClick={handleForgotPassword} className='Mainlink'><p className='ForgotPassword'>{resetlink ? "Email sent. Please check spam folder" : "Forgot Password"}</p></Link>
                                         </form>
                                     )
                             }

@@ -5,13 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEarthAmericas } from '@fortawesome/free-solid-svg-icons';
 import { faWpexplorer } from '@fortawesome/free-brands-svg-icons';
 
-const Sidebar = (props) => {
+const Sidebar = () => {
     return (
         <div className="Sidebar">
 
             {/* Home */}
             <div className="Homeoption">
-                <Link className="SideLink" to='/'>
+                <Link className="SideLink" to='/home'>
                     <div className="TextContainer">
                         Home
                     </div>
@@ -39,7 +39,7 @@ const Sidebar = (props) => {
                 </div>
                 {/* Tags */}
                 <div className="ListItems">
-                    <Link className="SideLink">
+                    <Link className="SideLink" to="/tags">
                         <div className="TextContainer">
                             <div className='Text1'>
                                 Tags
@@ -67,7 +67,7 @@ const Sidebar = (props) => {
                 </div>
                 {/* Explore Collectives */}
                 <div className="ListItems">
-                    <Link className="SideLink">
+                    <Link className="SideLink" to="/404">
                         <div className="TextContainer">
                             <FontAwesomeIcon icon={faWpexplorer} />
                             <div className='Text'>
@@ -84,19 +84,9 @@ const Sidebar = (props) => {
                         Find a Job
                     </div>
                 </div>
-                {/* Jobs */}
-                <div className="ListItems">
-                    <Link className="SideLink">
-                        <div className="TextContainer">
-                            <div className='Text1'>
-                                Jobs
-                            </div>
-                        </div>
-                    </Link>
-                </div>
                 {/* Companies */}
                 <div className="ListItems">
-                    <Link className="SideLink">
+                    <Link className="SideLink" to='/jobs'>
                         <div className="TextContainer">
                             <div className='Text1'>
                                 Companies

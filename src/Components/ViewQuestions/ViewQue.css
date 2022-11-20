@@ -43,11 +43,33 @@ span {
     width: 10%;
 }
 
-.UpArrow,
-.Votecount,
-.DownArrow {
-    color: rgb(141, 150, 160) !important;
+.Vote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.UpArrow,
+.DownArrow {
+    color: rgb(185, 189, 192) !important;
+    cursor: pointer;
+}
+
+.Votecount {
+    color: rgb(111, 113, 114);
+    font-size: 20px;
+}
+
+/* .UpArrow,
+.DownArrow:focus {
+    pointer-events: none;
+} */
+
+.Vote_icon:active {
+    color: hsl(27, 90%, 55%);
+}
+
 
 .Answer-right {
     display: inline-block;
@@ -97,8 +119,6 @@ span {
 
 .time-stamp {
     color: rgb(145, 153, 161);
-
-
 }
 
 .Comment-text,
@@ -117,6 +137,7 @@ span {
     flex-direction: row;
     align-items: center;
     margin-right: 18px;
+    line-height: 40px;
 }
 
 .author-details {
@@ -128,6 +149,8 @@ span {
 
 .avatar {
     padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 5px;
 }
 
 .timeline {
