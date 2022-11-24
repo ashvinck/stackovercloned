@@ -81,7 +81,7 @@ const QuestionsLayout = (props) => {
                             <div className='row Qrsm1' >
                                 <div className='InfoContainer'>
                                     <p> 0 votes</p>
-                                    <p> {answers.length} {' '} answers</p>
+                                    <p> {answers?.length} {' '} answers</p>
                                     <p> {viewCount} views</p>
                                 </div>
                             </div>
